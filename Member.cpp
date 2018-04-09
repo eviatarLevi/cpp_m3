@@ -10,13 +10,13 @@ Member::Member()
     FollowingCount = 0;
     id = ++numID;
 }
-Member::~Member()
+Member::~Member()//distructor
 {
     for(int i=0; i<FollowingCount; i++){
-           unfollow(*folowList[i]);
+           unfollow(*folowList[i]);//unfollow from my list
         }
     for(int i=0; i<FollowersCount; i++){
-           folowsList[i]->unfollow(*this);
+           folowsList[i]->unfollow(*this);//unfollow from their list
         }   
     counter--;
 }
@@ -25,24 +25,24 @@ int Member::count()
     return counter;
 }
 
-void Member::follow(Member &m)
+void Member::follow(Member &m)//follow
 {
-    if(this->id!=m.id){
-        for(int i=0; i<FollowingCount; i++){
+    if(this->id!=m.id){//check it not this obj
+        for(int i=0; i<FollowingCount; i++){//check duplicity
             if(folowList[i]->id == m.id)
             {
                 return;
             }
         }   
-        folowList.push_back(&m);
-        FollowingCount++;
+        folowList.push_back(&m);//add
+        FollowingCount++;//counter
         m.newFollowers(*this);
     }
 }
-void Member::unfollow(Member &m)
+void Member::unfollow(Member &m)//unfollow
 {
      for(int i=0; i<FollowingCount; i++){
-        if(folowList[i]->id == m.id)
+        if(folowList[i]->id == m.id)//find to erase
         {
             folowList.erase(folowList.begin() + i);
             FollowingCount--;
