@@ -27,7 +27,7 @@ int Member::count()
 
 void Member::follow(Member &m)
 {
-   // if(m != nullptr){
+    if(this->id!=m.id){
         for(int i=0; i<FollowingCount; i++){
             if(folowList[i]->id == m.id)
             {
@@ -37,7 +37,7 @@ void Member::follow(Member &m)
         folowList.push_back(&m);
         FollowingCount++;
         m.newFollowers(*this);
-    //}
+    }
 }
 void Member::unfollow(Member &m)
 {
