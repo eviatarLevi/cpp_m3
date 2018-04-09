@@ -1,5 +1,5 @@
 
-#include "Member.h"
+#include "member.h"
 #include <iostream>
 using namespace std;
 
