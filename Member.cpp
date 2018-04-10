@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-Member::Member()//constructor
+Member::Member()
 {
     counter++;
     FollowersCount = 0;
